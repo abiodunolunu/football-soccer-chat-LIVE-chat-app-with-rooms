@@ -1,0 +1,54 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+
+  <section class="auth-form">
+      <div class="form-wrapper">
+          <span class="icon">
+              <img src="/assets/smallball.jpg" alt="">
+          </span>
+            <form class="form" action="/signup" method="POST">
+                <div class="flash-container">
+                    
+                    <%  if(validationErrors && validationErrors.length > 0) { %>
+                        <% validationErrors.forEach(error => { %>
+                            <div class="error-flash">
+                                <%= error.msg %> !
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+                <label class="half">
+                    Firstname:
+                    <input type="text" name="firstname" value="<%= oldInput.firstname %>">
+                </label>
+                <label class="half">
+                    Lastname:
+                    <input type="text" name="lastname" value="<%= oldInput.lastname %>">
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" value="<%= oldInput.email %>">
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password">
+                </label>
+                <label>
+                    re-enter password:
+                    <input type="password" name="confirmPassword">
+                </label>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="submit" value="Sign Up">
+                <div class="other-options">
+                    <!-- <a href="#">Forgot password?</a> -->
+                    <a href="/login">Login instead?</a>
+                </div>
+            </form>
+      </div>
+  </section>
+
+  <%- include('../includes/end.ejs') %>

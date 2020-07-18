@@ -1,0 +1,33 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+
+
+  <section class="hero">
+    <div class="hero__container">
+      <div class="flash-container">
+      <%  if(error && error.length > 0) { %>
+        <div class="error-flash">
+            <%= error %>
+        </div>
+    <% } %>
+      </div>
+      <div class="hero__title">
+        <h1>Welcome to SoccerChat.</h1>
+        <p>Join and chat with millions of football fans worldwide.</p>
+      </div>
+      <div class="hero__content">
+        <% if(authenticated) { %>
+          <a class="get-started" href="/rooms">Enter room!</a>
+          <% } %>
+       <% if(!authenticated) { %>
+        <a class="login" href="/login">Login</a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('../includes/end.ejs') %>

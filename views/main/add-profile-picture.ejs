@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <section class="auth-form">
+        <div class="form-wrapper">
+            <!-- <span class="icon">
+                <img src="/assets/smallball.jpg" alt="">
+            </span> -->
+            <form class="form" action="/upload-dp?_csrf=<%= csrfToken %>" method="POST" enctype="multipart/form-data">
+                <div class="flash-container">
+                    <%  if(success && success.length > 0) { %>
+                        <div class="success-flash">
+                            <%= success %>
+                        </div>
+                    <% } %>
+                    <%  if(error && error.length > 0) { %>
+                        <div class="error-flash">
+                            <%= error %>
+                        </div>
+                    <% } %>
+
+                       
+                    <%  if(validationErrors && validationErrors.length > 0) { %>
+                        <% validationErrors.forEach(error => { %>
+                            <div class="error-flash">
+                                <%= error %> !
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+              
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <label>
+                    Choose an image:
+                    <input type="file" name="dp" id="" style="border: <%= validationErrors && validationErrors.length > 0 ? ' 1px solid red' : '' %>;">
+                </label>
+                <input type="submit" value="Submit">
+                <div class="other-options">
+                    <a href="/">Go home</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <%- include('../includes/end.ejs') %>

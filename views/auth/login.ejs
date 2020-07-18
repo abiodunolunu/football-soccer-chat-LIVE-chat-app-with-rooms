@@ -1,0 +1,54 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <section class="auth-form">
+        <div class="form-wrapper">
+            <span class="icon">
+                <img src="/assets/smallball.jpg" alt="">
+            </span>
+            <form class="form" action="/login" method="POST">
+                <div class="flash-container">
+                    <%  if(success && success.length > 0) { %>
+                        <div class="success-flash">
+                            <%= success %>
+                        </div>
+                    <% } %>
+                    <%  if(error && error.length > 0) { %>
+                        <div class="error-flash">
+                            <%= error %>
+                        </div>
+                    <% } %>
+
+                       
+                    <%  if(validationErrors && validationErrors.length > 0) { %>
+                        <% validationErrors.forEach(error => { %>
+                            <div class="error-flash">
+                                <%= error %> !
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+                
+                <label>
+                    Email:
+                    <input type="email" name="email" value="<%= oldInput.email %>">
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" value="<%= oldInput.password %>">
+                </label>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="submit" value="Sign In">
+                <div class="other-options">
+                    <a href="#">Forgot password?</a>
+                    <a href="/signup">Create account?</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <%- include('../includes/end.ejs') %>

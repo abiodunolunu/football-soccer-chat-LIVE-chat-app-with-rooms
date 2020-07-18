@@ -1,0 +1,116 @@
+body {
+  background-color: #4bbd2b;
+  background-blend-mode: luminosity;
+}
+.auth-form {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-wrapper {
+  background-color: #fff;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  z-index: 3;
+}
+span.icon {
+  display: block;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4bbd2b;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  z-index: 2;
+}
+span.icon img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.form-wrapper .form {
+  width: 80%;
+  margin: auto;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form label {
+  width: 100%;
+  display: block;
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+.form label.half {
+  width: 46%;
+}
+.form label input {
+  margin-top: 3px;
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form label input:focus {
+  border: 1px solid #4bbd2b;
+}
+input[type="submit"] {
+  display: block;
+  height: 32px;
+  min-width: 120px;
+  margin: auto;
+  margin-bottom: 0;
+  background-color: #4bbd2b;
+  color: #fff;
+  outline: 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px -2px #4bbd2b;
+}
+input[type="submit"]:focus,
+input[type="submit"]:hover {
+  transform: scale(0.95);
+  background-color: #006400;
+  box-shadow: 0 4px 8px -4px #006400;
+}
+.other-options {
+  width: 100%;
+  margin-top: 14px;
+  font-size: 0.85em;
+  display: flex;
+  justify-content: space-between;
+}
+.other-options a {
+  color: #4bbd2b;
+  font-weight: 500;
+}
+.other-options a:hover {
+  color: green;
+  transform: scale(1.05);
+}
+@media (max-width: 450px) {
+  .form-wrapper {
+    border-radius: 0;
+  }
+  .form-wrapper .form {
+    width: 90%;
+  }
+  .form label.half {
+    width: 100%;
+  }
+  .other-options a {
+    font-size: 0.85em;
+  }
+}

@@ -1,0 +1,68 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+
+    <section class="chat">
+        <div class="user-info">
+            <div class="logo">
+                <img src="/assets/logo.svg" alt="logo">
+            </div>
+            <div class="room-name">
+                <p><%= room.toUpperCase() %></p>
+            </div>
+            <div class="me-and-nav">
+                <a href="rooms">Leave Room</a>
+                <p class="my-name"><%= username %>%></p>
+                <img src="\<%= userPicture %>" alt="pic">
+
+            </div>
+        </div>
+        <div class="members-and-chat">
+
+        </div>
+        <div class="all-users">
+        </div>
+        <div class="main-chat">
+            <div id="messages" class="messages">
+
+
+
+                <%  roomMessages.forEach(msg => { %>
+                <div class="a-msg <%= msg.authorId.toString() == userId.toString() ? 'mine' : '' %>">
+                    <div class="a-msg__image">
+                        <img src="<%= msg.authorPicture %>" alt="">
+                    </div>
+                    <div class="a-msg__content">
+                        <div class="text-author">
+                            <p class="author">
+                                <%= msg.author %>
+                            </p>
+                            <p class="text">
+                                <%= msg.text %>
+                            </p>
+                        </div>
+                        <div class="time">
+                            <p><%= msg.time %></p>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        
+        <div class="form-wrapper">
+            <form class="form" action="">
+                <textarea placeholder="Type a message..."></textarea>
+                <button type="submit">Send!</button>
+            </form>
+        </div>
+        <!-- <div class="others-info"></div> -->
+    </section>
+
+    <input id="username" type="hidden" value="<%= username %>">
+    <input id="userId" type="hidden" value="<%= userId %>">
+    <input id="room" type="hidden" value="<%= room %>">
+    <input id="userDisplayPic" type="hidden" value="<%= userPicture %>">
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,116 @@
+.rooms-wrapper {
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.room__title {
+  text-align: center;
+  color: #3f6ad8;
+}
+.form-wrapper {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+.form-wrapper .form {
+  margin-top: 20px;
+  width: 100%;
+}
+.form .room-names {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.form label {
+  display: block;
+  width: 30%;
+  margin: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: relative;
+  height: 35px;
+  margin-bottom: 10px;
+}
+.form input[type="radio"] {
+  all: unset;
+  height: 0;
+  width: 0;
+}
+.form label span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #212529;
+  background-color: #eee;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s,
+    box-shadow 0.15s;
+  border-color: #dcdcdc;
+  cursor: pointer;
+}
+.form input:hover ~ span {
+  color: #212529;
+  background-color: #dbdbdb;
+  border-color: #d5d5d5;
+  transform: scale(0.95);
+}
+.form input:checked ~ span {
+  background-color: #3ac47d;
+  color: #fff;
+  font-weight: 700;
+}
+.submit-div {
+  margin-top: 30px;
+  width: 100%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit-div input {
+  -webkit-tap-highlight-color: transparent;
+  width: 150px;
+  -webkit-appearance: button;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 2px solid transparent;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  outline: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #3f6ad8;
+  background-color: #fff;
+  border-color: #3f6ad8;
+  color: #3f6ad8;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s,
+    box-shadow 0.15s;
+  cursor: pointer;
+}
+.submit-div input:active,
+.submit-div input:hover {
+  background-color: #3f6ad8;
+  color: #fff;
+  transform: scale(0.97);
+}

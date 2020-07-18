@@ -1,0 +1,106 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+
+<body>
+
+    <section class="chat">
+        <div class="user-info">
+            <div class="logo">
+                <img src="/assets/logo.svg" alt="logo">
+            </div>
+            <div class="room-name">
+                <p><%= room.toUpperCase() %></p>
+            </div>
+            <div class="me-and-nav">
+                <a href="rooms">Leave Room</a>
+                    <div class="me">
+                        <p class="my-name"><%= username %>%></p>
+                        <img src="\<%= userPicture %>" alt="pic">
+                    </div>
+            </div>
+            <div class="menu-icon" onclick="toggle()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="members-and-chat">
+            <div class="members-and-chat__switch">
+                <a href="#all-users">Members (<span class="number-of-members"> 0</span>)</a>
+                <a href="#main-chat" class="active">Chat</a>
+            </div>
+            <div class="members-and-chat__components">
+                <div id="all-users" class="all-users comp">
+                </div>
+                <a class="go-down"><i class="fas fa-angle-double-down"></i></a>
+                <div id="main-chat" class="main-chat comp show">
+                    <div id="messages" class="messages">
+                        <%  roomMessages.forEach(msg => { %>
+                        <div class="a-msg <%= msg.authorId.toString() == userId.toString() ? 'mine' : '' %>">
+                            <div class="a-msg__image">
+                                <img src="<%= msg.authorPicture %>" alt="">
+                            </div>
+                            <div class="a-msg__content">
+                                <div class="text-author">
+                                    <p class="author">
+                                        <%= msg.author %>
+                                    </p>
+                                    <p class="text">
+                                        <%= msg.text %>
+                                    </p>
+                                </div>
+                                <div class="time">
+                                    <p><%= msg.time %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <form class="form" action="">
+                <textarea placeholder="Type a message..."></textarea>
+                <button type="submit">Send!</button>
+            </form>
+        </div>
+        <!-- <div class="others-info"></div> -->
+    </section>
+
+    <input id="username" type="hidden" value="<%= username %>">
+    <input id="userId" type="hidden" value="<%= userId %>">
+    <input id="room" type="hidden" value="<%= room %>">
+    <input id="userDisplayPic" type="hidden" value="<%= userPicture %>">
+
+
+    <script>
+        const buttonsContainer = document.querySelector(".members-and-chat__switch")
+
+        const buttons = buttonsContainer.querySelectorAll('a')
+
+        const wizardComponents = document.querySelectorAll('.comp')
+
+        function removeActiveClass() {
+            buttons.forEach(button => {
+                button.classList.remove('active')
+            })
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                removeActiveClass()
+                button.classList.add('active')
+                wizardComponents.forEach(comp => {
+                    comp.classList.remove('show')
+                })
+                const component = document.querySelector(e.target.getAttribute('href'))
+                component.classList.add('show')
+            })
+        })
+
+
+    </script>
+    <%- include('../includes/end.ejs') %>
