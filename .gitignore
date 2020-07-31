@@ -1,7 +1,7 @@
 node_modules
 *.log
 /.idea/*
-/config/*
+# /config/*
 /seed.js
 /config.js
 /SoccerChat.rar
