@@ -263,6 +263,7 @@ section.chat {
   color: #fff;
   border-radius: 10px;
   word-break: break-all;
+  word-break: break-word;
   width: fit-content;
   background-color: #f1f0f4;
 }
@@ -284,7 +285,7 @@ section.chat {
   color: #fff;
 }
 .a-msg .time p {
-  text-align: right;
+  text-align: left;
 }
 .a-msg.mine {
   align-content: end;
@@ -301,6 +302,10 @@ section.chat {
 }
 .a-msg.mine .a-msg__content .text-author {
   margin-left: auto;
+}
+
+.a-msg.mine .time p {
+  text-align: right;
 }
 .bot-msg {
   width: 80%;

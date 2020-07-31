@@ -76,7 +76,7 @@ function outputUsers(users) {
     const allUsers = users.map(user => {
         return `<div class="a-user ${USERID == user.userId ? 'mine' : ''}">
         <div class="a-user__image">
-            <img src="/${user.userPicture}" alt="">
+            <img src="${user.userPicture}" alt="">
         </div>
         <div class="a-user__info">
             <p class="name">${user.username}</p>

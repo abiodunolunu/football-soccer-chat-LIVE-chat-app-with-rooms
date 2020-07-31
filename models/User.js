@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: 'assets\\smallball.jpg'
   },
+  displayPicturePublicId: {
+    type: String,
+    default: ''
+  },
   resetToken: String,
   resetTokenExpiration: Date
 })

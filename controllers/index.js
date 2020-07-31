@@ -1,7 +1,7 @@
 import User from '../models/User.js';
 import Room from '../models/Room.js';
 import moment from 'moment';
-import upload from '../utils/upload.js'
+import { dataUri, MulterUpload, cloudinaryConfig, uploader } from '../utils/upload.js'
 
 const getIndex = async (req, res, next) => {
   res.render('main/index', {
@@ -74,7 +74,7 @@ const getUploadPage = async (req, res, next) => {
 }
 
 const postUpload = async (req, res, next) => {
-  upload(req, res, async (err) => {
+  MulterUpload(req, res, async (err) => {
     if (err) {
       if (err.code == "LIMIT_FILE_SIZE") {
         return res.render('main/add-profile-picture', {
@@ -97,7 +97,18 @@ const postUpload = async (req, res, next) => {
       })
     } else {
       const user = await User.findByIdAndUpdate(req.session.user._id);
-      user.displayPicture = req.file.path
+      // Delete Previous Picture, If any
+      if (user.displayPicturePublicId !== "") {
+        await uploader.destroy(user.displayPicturePublicId)
+      }
+
+      // Then proceed
+      const file = dataUri(req).content
+      const result = await uploader.upload(file, {
+        folder: "soccer-chat-app"
+      })
+      user.displayPicture = result.url
+      user.displayPicturePublicId = result.public_id
       await user.save()
       return res.render('main/add-profile-picture', {
         path: '/upload',
