@@ -19,6 +19,7 @@ import indexRoute from './routes/index.js'
 import authRoutes from './routes/auth.js'
 import { userJoin, getCurrentUser, userLeave, getRoomUsers, getUserById } from './utils/users.js'
 import formatMessage from './utils/messages.js';
+import { cloudinaryConfig } from './utils/upload.js'
 import morgan from 'morgan';
 const MongoDBStore = (connectMongoDBSesion)(session)
 dotenv.config({ path: './config/config.env' })
@@ -37,9 +38,11 @@ const io = socketIO.init(server)
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'})
 
+
 app.use(helmet())
 app.use(compression())
 app.use(morgan('combined', {stream: accessLogStream}))
+app.use(cloudinaryConfig)
 
 app.use(bodyParser.urlencoded({
   extended: false
