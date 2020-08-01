@@ -1,0 +1,253 @@
+header {
+  color: transparent;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 4;
+}
+.my-contact {
+  background-color: #000;
+}
+.blm {
+  color: #fff;
+  text-align: center;
+}
+.my-contact__wrapper {
+  width: 90%;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-weight: 700;
+  font-size: 0.8em;
+  margin: auto;
+}
+.my-contact__socials a {
+  display: inline-block;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.my-contact__socials i {
+  font-size: 20px;
+}
+.twitter i {
+  color: #1a73e8;
+}
+.facebk i {
+  color: #3b5999;
+}
+.git i {
+  color: #ddd;
+}
+.my-contact__phone {
+  display: flex;
+  justify-content: flex-end;
+}
+.my-contact__phone p {
+  color: #fff;
+  margin-right: 20px;
+}
+.my-contact__phone a {
+  color: #fff;
+}
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 2px;
+  position: relative;
+}
+.brand img {
+  height: 42px;
+}
+.nav-item {
+  display: inline-block;
+  margin-left: 20px;
+}
+.nav-link {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.nav-link.active {
+  color: #4bbd2b;
+}
+.nav-link::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 100%;
+  visibility: hidden;
+  background-color: #fff;
+  transform: scale(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+.nav-link:hover {
+  color: #4bbd2b;
+}
+.nav-link:hover::after {
+  visibility: visible;
+  transform: scale(1);
+}
+.nav-item.auth form {
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.nav-item.auth form button {
+  border: none;
+  background-color: #fff;
+  color: #1a73e8;
+  padding: 6px 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.nav-item.auth form button:hover {
+  transform: scale(0.95);
+}
+.menu-icon {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 30px;
+  cursor: pointer;
+}
+.menu-icon span {
+  display: block;
+  height: 2px;
+  background-color: #000;
+  margin-bottom: 4px;
+  pointer-events: none;
+  transition: 0.2s ease-in;
+}
+.menu-icon span:nth-of-type(3) {
+  margin-bottom: 0;
+}
+.menu-icon span:nth-of-type(1).open {
+  transform: rotate(45deg) translateX(10px);
+}
+.menu-icon span:nth-of-type(3).open {
+  transform: rotate(-45deg) translateX(7px);
+}
+.menu-icon span:nth-of-type(2).open {
+  background-color: #663399;
+  transform: translateY(30px);
+  transform: translateX(30px);
+  opacity: 0;
+}
+@media (max-width: 48em) {
+  .navbar {
+    background-color: #fff;
+  }
+  .my-contact__wrapper {
+    width: 90%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: 700;
+    font-size: 0.8em;
+    margin: auto;
+    text-align: center;
+  }
+  .my-contact__phone {
+    display: flex;
+    justify-content: center;
+    order: 3;
+  }
+  .blm {
+    order: 1;
+  }
+  .my-contact__socials {
+    order: 2;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .navbar {
+    width: 100%;
+    margin: 0;
+  }
+  .brand {
+    margin-left: 20px;
+    width: auto;
+  }
+  .nav-list {
+    z-index: 9;
+    width: 100%;
+    background-color: #fff;
+    transform: scale(0);
+    height: 0;
+    transform-origin: -400px;
+    transition: transform 0.2s ease-in-out;
+  }
+  .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    height: 40px;
+  }
+  .nav-link {
+    color: #000222;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-link.nav-link.active {
+    background-color: #000222;
+    color: #fff;
+  }
+  .nav-item:hover {
+    background-color: #4bbd2b;
+  }
+  .nav-item:hover a {
+    color: #fff;
+  }
+  .nav-link::after {
+    content: none;
+  }
+  .nav-list.show {
+    height: auto;
+    transform: scale(1);
+  }
+  .nav-item.auth form {
+    width: 70%;
+    display: block;
+    background-color: #4bbd2b;
+  }
+  .nav-item.auth form button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    padding: 6px 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .nav-item.auth form button:hover {
+    transform: scale(0.95);
+  }
+}

@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #000222;
+}
+body {
+  font-family: Raleway, sans-serif;
+  background-image: url(../assets/soccer-ball-on-grass-field-during-daytime-46798.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: overlay;
+  transform: translateZ(10px);
+  max-width: 1440px;
+  margin: auto;
+}
+a {
+  text-decoration: none;
+}
+.flash-container {
+  width: 100%;
+  font-weight: 500;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.flash-container div {
+  font-size: 0.9em;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.success-flash {
+  background-color: #d4edda;
+  color: #155724;
+}
+.error-flash {
+  background-color: #f8d7da;
+  color: #721c24;
+}

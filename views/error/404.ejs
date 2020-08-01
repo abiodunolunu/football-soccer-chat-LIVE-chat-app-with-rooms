@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+<style>
+    body {
+        background-color: crimson;
+        background-blend-mode: multiply;
+    }
+    
+        main {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+    
+        a {
+            margin-top: 10px;
+            font-weight: 700;
+            background-color: #fff;
+            padding: 8px 16px;
+            color: #000;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h2>404 Error</h2>
+        <h1><%= url.replace('/', '').charAt(0).toUpperCase() + url.slice(2) %> page Not Found!</h1>
+    <a href="/">Go home</a>
+    </main>
+
+<%- include('../includes/end.ejs') %>

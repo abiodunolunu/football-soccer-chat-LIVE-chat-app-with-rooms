@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+
+    <section class="rooms-wrapper">
+        <div class="form-wrapper">
+            <div class="room__title">
+                <h1>Select a room to join</h1>
+            </div>
+            <form class="form" action="/room" method="POST">
+                <div class="room-names">
+
+                </div>
+
+                <div class="submit-div">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <input type="submit" value="Enter!">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roomsNames = document.querySelector('.room-names')
+            const allRooms = ['England', 'Spain', 'Germany', 'Italy', 'France', 'Belgium', 'Nigeria', 'South Africa', 'China', 'USA', 'Holland', 'Sweden']
+            function populateRooms() {
+                allRooms.forEach(room => {
+                    const label = document.createElement('label')
+                    label.innerHTML = `
+                <input type="radio" name="room" value="${room.toLowerCase()}">
+                <span>${room}</span>`
+                    roomsNames.appendChild(label)
+                })
+            }
+            populateRooms()
+        })
+    </script>
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,54 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.hero__title {
+  color: #fff;
+  text-align: center;
+}
+.hero__title h1 {
+  text-align: center;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+.hero__title p {
+  font-size: 0.9em;
+}
+.hero__content {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+.hero__content a {
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin: 0 2px;
+  display: inline-block;
+  transform: scale(1);
+  transition: all 0.2s;
+}
+.hero__content .get-started {
+  color: #000222;
+  background-color: #fff;
+}
+.hero__content .login {
+  color: #fff;
+  background-color: #4bbd2b;
+}
+.hero__content .get-started:hover {
+  background-color: #000222;
+  color: #fff;
+  transform: scale(0.96);
+}
+.hero__content .login:hover {
+  background-color: #90ee90;
+  color: #006400;
+  transform: scale(0.96);
+}

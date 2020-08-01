@@ -1,0 +1,15 @@
+</body>
+
+<% if(path != '/chat') { %>
+<script src="/js/index.js"></script>
+<% } %>
+<% if(path == '/chat') { %>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
+<script src="/js/autosize.min.js"></script>
+<script>
+    autosize(document.querySelector('textarea'));
+</script>
+<% } %>
+
+</html>
